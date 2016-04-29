@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="tpNote:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/tpNote_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="tpNote/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="web.war">
+        <element id="artifact" artifact-name="tpNote:war exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>
