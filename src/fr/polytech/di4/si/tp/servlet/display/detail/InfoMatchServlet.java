@@ -1,6 +1,6 @@
 package fr.polytech.di4.si.tp.servlet.display.detail;
 
-import fr.polytech.di4.si.tp.model.Match;
+import fr.polytech.di4.si.tp.model.Matche;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,8 +19,8 @@ import java.util.Date;
 public class InfoMatchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //TODO persist the match
-        //if no id in match create ?
+        //TODO persist the matche
+        //if no id in matche create ?
         String id = request.getParameter("match_id");
         String city = request.getParameter("city");
         String stadium = request.getParameter("stadium");
@@ -34,27 +34,27 @@ public class InfoMatchServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        //TODO get the match with its id if no
-        Match match = new Match();
-        match.setId(Long.parseLong(id));
-        match.setCity(city);
-        match.setStadium(stadium);
-        match.setDate(date);
+        //TODO get the matche with its id if no
+        Matche matche = new Matche();
+        matche.setId(Long.parseLong(id));
+        matche.setCity(city);
+        matche.setStadium(stadium);
+        matche.setDate(date);
 
         response.sendRedirect(getServletContext().getContextPath() + "/matches");
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String match_id = request.getParameter("match_id");
+        String matche_id = request.getParameter("match_id");
         boolean edit_mode = request.getParameter("edit_mode").equals("true");
         boolean logged = request.getSession().getAttribute("authenticated") != null;
 
-        //TODO get the match with its id if no
-        Match match = new Match();
-        request.setAttribute("match", match);
+        //TODO get the matche with its id if no
+        Matche matche = new Matche();
+        request.setAttribute("match", matche);
 
-        if (match_id == null && !edit_mode) {
+        if (matche_id == null && !edit_mode) {
             //miss param and not in edit mode so redirect
             response.sendRedirect(getServletContext().getContextPath() + "/matches");
 

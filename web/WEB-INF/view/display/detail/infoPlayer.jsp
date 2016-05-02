@@ -28,15 +28,8 @@
 </c:if>
 <%--TODO load player with ${player} --%>
 
-String player_id = request.getParameter("player_id");
-String player_name = request.getParameter("player_name");
-String player_goals = request.getParameter("player_goals_id");
-String player_team_id = request.getParameter("player_team_id");
-String player_note = request.getParameter("player_note");
-
 name = ${requestScope.player.name}<br>
 goals id = ${requestScope.player.goals}<br>
-team id = ${requestScope.player.team}<br>
 note = ${requestScope.player.note}<br>
 
 </body>
