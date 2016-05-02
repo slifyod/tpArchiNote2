@@ -22,7 +22,7 @@ public class DbFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
         try {
             //TODO db
-            //Db.start();
+            Db.start();
         } catch (Exception e) {
             e.printStackTrace();
         }

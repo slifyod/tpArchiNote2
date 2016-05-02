@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/archi_tpf</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.dialect"> org.hibernate.dialect.MySQLDialect</property>
+        <property name="hbm2ddl.auto">update</property>
+
+
+        <!-- List of XML mapping files -->
+        <mapping resource="fr/polytech/di4/si/tp/mappingFiles/Match.hbm.xml"/>
+        <mapping resource="fr/polytech/di4/si/tp/mappingFiles/Team.hbm.xml"/>
+        <mapping resource="fr/polytech/di4/si/tp/mappingFiles/Edition.hbm.xml"/>
+        <mapping resource="fr/polytech/di4/si/tp/mappingFiles/User.hbm.xml"/>
+        <mapping resource="fr/polytech/di4/si/tp/mappingFiles/Player.hbm.xml"/>
+        <mapping resource="fr/polytech/di4/si/tp/mappingFiles/Role.hbm.xml"/>
+        <mapping resource="fr/polytech/di4/si/tp/mappingFiles/Score.hbm.xml"/>
+        <mapping resource="fr/polytech/di4/si/tp/mappingFiles/Ranking.hbm.xml"/>
+
+        <!-- DB schema will be updated if needed -->
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

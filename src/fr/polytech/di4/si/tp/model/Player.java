@@ -1,16 +1,18 @@
 package fr.polytech.di4.si.tp.model;
 
+import java.util.Set;
+
 /**
  * Created by linux on 30/04/16.
  */
 public class Player {
+    //relation done
     private long id;
-    private String name;
     private int goals;
     private double note;
-    private Team team;
+    private String name;
+    private Set roles;
 
-    //TODO relationship
 
     public long getId() {
         return id;
@@ -44,11 +46,11 @@ public class Player {
         this.note = note;
     }
 
-    public Team getTeam() {
-        return team;
+    public Set getRoles() {
+        return roles;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
+    public void setRoles(Set roles) {
+        this.roles = roles;
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="fr.polytech.di4.si.tp.model.Team" table="TEAM" optimistic-lock="version">
+        <meta attribute="class-description">
+            This class contains the user inforrmations.
+        </meta>
+
+        <id name="id" type="int" column="team_id"><generator class="native"/></id>
+
+        <property name="name" column="name" type="string"/>
+
+        <set name="players" cascade="all">
+            <key column="team_id"/>
+            <one-to-many class="fr.polytech.di4.si.tp.model.Player"/>
+        </set>
+
+        <set name="rankings" cascade="all">
+            <key column="team_id"/>
+            <one-to-many class="fr.polytech.di4.si.tp.model.Ranking"/>
+        </set>
+        <set name="scores" cascade="all">
+            <key column="team_id"/>
+            <one-to-many class="fr.polytech.di4.si.tp.model.Score"/>
+        </set>
+    </class>
+
+
+</hibernate-mapping>

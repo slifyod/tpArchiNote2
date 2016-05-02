@@ -5,44 +5,16 @@ package fr.polytech.di4.si.tp.model;
  */
 public class Score {
     private long id;
-    private Match match;
-    private Team team;
-    private Edition edition;
     private int score;
     private boolean victory;
-
-    //TODO relationship
-
+    private Matche matche;
+    private Edition edition;
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Match getMatch() {
-        return match;
-    }
-
-    public void setMatch(Match match) {
-        this.match = match;
-    }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
-    public Edition getEdition() {
-        return edition;
-    }
-
-    public void setEdition(Edition edition) {
-        this.edition = edition;
     }
 
     public int getScore() {
@@ -59,5 +31,21 @@ public class Score {
 
     public void setVictory(boolean victory) {
         this.victory = victory;
+    }
+
+    public Matche getMatche() {
+        return matche;
+    }
+
+    public void setMatche(Matche matche) {
+        this.matche = matche;
+    }
+
+    public Edition getEdition() {
+        return edition;
+    }
+
+    public void setEdition(Edition edition) {
+        this.edition = edition;
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="fr.polytech.di4.si.tp.model.Matche" table="MATCHE" optimistic-lock="version">
+        <meta attribute="class-description">
+            This class contains the user inforrmations.
+        </meta>
+        <id name="id" type="int" column="match_id"><generator class="native"/></id>
+        <property name="date" column="date" type="java.util.Date"/>
+        <property name="city" column="city" type="string"/>
+        <property name="stadium" column="stadium" type="string"/>
+       <one-to-one name="score" class="fr.polytech.di4.si.tp.model.Score" cascade="save-update"/>
+    </class>
+
+
+</hibernate-mapping>

@@ -1,6 +1,6 @@
 package fr.polytech.di4.si.tp.servlet.display.detail;
 
-import fr.polytech.di4.si.tp.model.Match;
+import fr.polytech.di4.si.tp.model.Matche;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +18,7 @@ public class InfoMatchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //TODO persist the match
         //if no id in match create ?
-        Match match = (Match) request.getAttribute("match");
+        Matche match = (Matche) request.getAttribute("match");
     }
 
     @Override
@@ -28,7 +28,7 @@ public class InfoMatchServlet extends HttpServlet {
         boolean logged = request.getParameter("authenticated") != null;
 
         //TODO get the match with its id if no
-        Match match = new Match();
+        Matche match = new Matche();
         request.setAttribute("match", match);
 
         if (match_id == null && !edit_mode) {

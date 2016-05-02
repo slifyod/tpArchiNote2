@@ -1,6 +1,6 @@
 package fr.polytech.di4.si.tp.servlet.display;
 
-import fr.polytech.di4.si.tp.model.Match;
+import fr.polytech.di4.si.tp.model.Matche;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +19,7 @@ public class MatchesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //TODO get all matches
-        List<Match> matches = new ArrayList<>();
+        List<Matche> matches = new ArrayList<>();
 
         request.setAttribute("matches", matches);
         getServletContext().getRequestDispatcher("/WEB-INF/view/display/matches.jsp").forward(request, response);

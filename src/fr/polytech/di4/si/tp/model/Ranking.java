@@ -8,8 +8,6 @@ public class Ranking {
     private int rank;
     private Edition edition;
 
-    //TODO relationship
-
     public long getId() {
         return id;
     }
