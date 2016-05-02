@@ -1,5 +1,6 @@
 package fr.polytech.di4.si.tp.servlet.display.detail;
 
+import fr.polytech.di4.si.tp.Db;
 import fr.polytech.di4.si.tp.model.Player;
 
 import javax.servlet.ServletException;
@@ -24,7 +25,7 @@ public class InfoPlayerServlet extends HttpServlet {
         String player_team_id = request.getParameter("player_team_id");
         String player_note = request.getParameter("player_note");
 
-        Player player = new Player();
+        Player player = (Player) Db.getSession().load(Player.class, Integer.parseInt(player_id));
         player.setId(Long.parseLong(player_id));
         player.setName(player_name);
         //TODO goals from DB AND TEAM with ID !!
@@ -32,7 +33,7 @@ public class InfoPlayerServlet extends HttpServlet {
         //player.setTeam();
         player.setNote(Double.parseDouble(player_note));
 
-
+        Db.getSession().save(player);
         response.sendRedirect(getServletContext().getContextPath() + "/players");
     }
 
@@ -44,7 +45,7 @@ public class InfoPlayerServlet extends HttpServlet {
 
 
         //TODO get the match with its id if no
-        Player player = new Player();
+        Player player = (Player) Db.getSession().load(Player.class, Integer.parseInt(player_id));
         request.setAttribute("player", player);
 
         if (player_id == null && !edit_mode) {

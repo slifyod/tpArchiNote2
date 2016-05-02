@@ -1,5 +1,6 @@
 package fr.polytech.di4.si.tp.servlet.display.detail;
 
+import fr.polytech.di4.si.tp.Db;
 import fr.polytech.di4.si.tp.model.Team;
 
 import javax.servlet.ServletException;
@@ -22,10 +23,11 @@ public class InfoTeamServlet extends HttpServlet {
         String team_name = request.getParameter("team_name");
 
         //TODO get the match with its id if no
-        Team team = new Team();
+        Team team = (Team) Db.getSession().load(Team.class, Integer.parseInt(id));
         team.setId(Long.parseLong(id));
         team.setName(team_name);
 
+        Db.getSession().save(team);
         response.sendRedirect(getServletContext().getContextPath() + "/teams");
     }
 
@@ -37,7 +39,7 @@ public class InfoTeamServlet extends HttpServlet {
 
 
         //TODO get the match with its id if no
-        Team team = new Team();
+        Team team = (Team) Db.getSession().load(Team.class, Integer.parseInt(team_id));
         request.setAttribute("team", team);
 
         if (team_id == null && !edit_mode) {

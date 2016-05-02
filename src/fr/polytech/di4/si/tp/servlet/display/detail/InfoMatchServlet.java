@@ -1,5 +1,6 @@
 package fr.polytech.di4.si.tp.servlet.display.detail;
 
+import fr.polytech.di4.si.tp.Db;
 import fr.polytech.di4.si.tp.model.Matche;
 
 import javax.servlet.ServletException;
@@ -35,13 +36,14 @@ public class InfoMatchServlet extends HttpServlet {
         }
 
         //TODO get the matche with its id if no
-        Matche matche = new Matche();
+        Matche matche = (Matche) Db.getSession().load(Matche.class, Integer.parseInt(id));
         matche.setId(Long.parseLong(id));
         matche.setCity(city);
         matche.setStadium(stadium);
         matche.setDate(date);
 
         response.sendRedirect(getServletContext().getContextPath() + "/matches");
+        Db.getSession().save(matche);
     }
 
     @Override
@@ -51,7 +53,8 @@ public class InfoMatchServlet extends HttpServlet {
         boolean logged = request.getSession().getAttribute("authenticated") != null;
 
         //TODO get the matche with its id if no
-        Matche matche = new Matche();
+        Matche matche = (Matche) Db.getSession().load(Matche.class, Integer.parseInt(matche_id));
+
         request.setAttribute("match", matche);
 
         if (matche_id == null && !edit_mode) {
