@@ -8,9 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Modification Team</title>
 </head>
 <body>
-<%--TODO --%>
+
+<form action="/infoteam" method="post">
+    <input type="hidden" name="team_id" value="${requestScope.team.id}"/>
+    Name = <input type="text" name="team_name" value="${requestScope.team.name}"/><br>
+    <input type="submit" value="Valider"/>
+</form>
+
 </body>
 </html>

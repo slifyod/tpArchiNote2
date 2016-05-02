@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
             User user = new User();
             //TODO store the user in the var user
             session.setAttribute("authenticated", user);
-            response.sendRedirect(getServletContext().getContextPath() + "/restrict/");
+            response.sendRedirect(getServletContext().getContextPath() + "/");
         } else {
             session.setAttribute("authenticated", null);
             response.sendRedirect(getServletContext().getContextPath() + "/login");

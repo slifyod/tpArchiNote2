@@ -18,14 +18,23 @@ public class InfoTeamServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //TODO persist the team
         //if no id in team create ?
-        Team team = (Team) request.getAttribute("team");
+        String id = request.getParameter("team_id");
+        String team_name = request.getParameter("team_name");
+
+        //TODO get the match with its id if no
+        Team team = new Team();
+        team.setId(Long.parseLong(id));
+        team.setName(team_name);
+
+        response.sendRedirect(getServletContext().getContextPath() + "/teams");
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String team_id = request.getParameter("team_id");
         boolean edit_mode = request.getParameter("edit_mode").equals("true");
-        boolean logged = request.getParameter("authenticated") != null;
+        boolean logged = request.getSession().getAttribute("authenticated") != null;
+
 
         //TODO get the match with its id if no
         Team team = new Team();
